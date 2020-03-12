@@ -16,7 +16,7 @@ end
 
 # PHASE 2
 
-def second_anagram?(str1, str2)   # O(nm)
+def second_anagram?(str1, str2)   # O(nm) = O(n^2)
   str2_arr = str2.chars
   str1.each_char do |char|     
     if str2_arr.include?(char)    

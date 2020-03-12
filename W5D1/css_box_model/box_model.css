@@ -1,0 +1,36 @@
+div {
+  min-height: 10px;
+  min-width: 200px;
+  padding: 50px;
+  border: 5px;
+  border-color: black;
+  border-style: solid;
+}
+
+#first-div {
+  background-color: #39cccc;
+}
+
+#second-div {
+  background-color: #ff4136;
+}
+
+p {
+  background-color: #7fdbff;
+  padding: 20px;
+  margin: 40px;
+  margin-right: 100px;
+}
+
+.img-1-container {
+  width: 200px;
+  height: 600px;
+  background-color: pink;
+}
+
+.img-2-container {
+  /* min-width: 200px;
+  height: 600px; */
+  background-color: purple;
+  display: flex;
+}

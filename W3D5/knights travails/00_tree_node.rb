@@ -35,16 +35,16 @@ class PolyTreeNode
         new_child.parent = nil 
     end
 
-    def dfs(target)
-        # return nil if self == nil
-        return self if self.value == target
-        #base case
-        self.children.each do |child|
-            result = child.dfs(target)
-            return result if result != nil
-        end
-        nil
-    end
+    # def dfs(target)
+    #     # return nil if self == nil
+    #     return self if self.value == target
+    #     #base case
+    #     self.children.each do |child|
+    #         result = child.dfs(target)
+    #         return result if result != nil
+    #     end
+    #     nil
+    # end
 
     def bfs(target)
         #root_node [n1,n2]
@@ -65,3 +65,34 @@ class PolyTreeNode
     end
 
 end
+
+
+
+
+# def dfs(target) # LIFO
+#     return self if self.value == target
+#     # return nil if self == nil
+    
+#     self.chilren.each do |child|
+#         result = child.dfs(target)
+#         return result if result != nil
+#     end
+
+#     nil
+# end
+
+
+
+# def bfs(target) # FIFO
+    
+#   q = [self]
+
+#   while !q.empty?
+#     return self if self.value == target
+#     node = q.shift
+#     node.children.each do |child|
+#         q << child
+#     end
+#   end
+#   nil
+# end

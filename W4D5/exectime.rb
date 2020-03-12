@@ -1,4 +1,4 @@
-
+  
 # PHASE I
 
 def my_min(list)        # time complexity = O(n)
