@@ -1,0 +1,23 @@
+<% if action == :edit %>
+    <% action_url = cat_url(@cat) %>
+<% else %>
+    <% action_url = cats_url %>
+ <% end %>
+
+ <form action="<%= action_url %>" method = "POST">
+    <% if action == :edit %>
+        <input type="hidden" name = "_method" value = "PATCH">
+    <% end %>
+ 
+    <label for="name">Name</label>
+    <input type="text" id="name" name="cat[name]" value="<%= cat.name%>">
+    <br>
+    
+    <label for="sex">Sex</label>
+        <input type="radio" id="male" name="cat[sex]" value="<%= cat.sex%>">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="cat[sex]" value="<%= cat.sex%>">
+        <label for="female">Female</label><br>
+ 
+ 
+ </form>
