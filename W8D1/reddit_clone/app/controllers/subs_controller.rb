@@ -1,6 +1,6 @@
 class SubsController < ApplicationController
 
-    before_action :require_signed_in! , only: [:edit, :update]
+    before_action :require_signed_in! , only: [:edit, :update, :create, :new]
 
     def index
         @subs = Sub.all
@@ -31,29 +31,18 @@ class SubsController < ApplicationController
     end
     
     def edit
-        @sub = Sub.find_by(id: params[:id])
+        @sub = current_user.subs.find(params[:id])
         render :edit
     end
 
-    # def update
-    #     @sub = Sub.find_by(id: params[:id])
-       
-    #     if @sub.update(sub_params) && @sub.moderator_id == current_user.id
-    #         redirect_to user_url(@sub.moderator_id)
-    #     else
-    #         flash[:errors] = @sub.errors.full_messages
-    #         redirect_to user_url(@sub.moderator_id)
-    #     end
-    # end
 
     def update
-        @sub = current_user.subs.find_by(id: params[:id])
-        # debugger
-        if @sub && @sub.update
-            redirect_to user_url(@sub.moderator_id)
+        @sub = current_user.subs.find(params[:id])
+        if @sub.update_attributes(sub_params)
+            redirect_to sub_url(@sub)
         else
-            # flash[:errors] = @sub.errors.full_messages
-            redirect_to user_url(@sub.moderator_id)
+            flash[:errors] = @sub.errors.full_messages
+            render :edit
         end
     end
 
@@ -65,7 +54,6 @@ class SubsController < ApplicationController
 
     def sub_params
         params.require(:sub).permit(:title, :description)
-        
     end
 
 end
