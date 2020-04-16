@@ -1,0 +1,8 @@
+.clock {
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    background-color: chocolate;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: cornsilk;
+}
